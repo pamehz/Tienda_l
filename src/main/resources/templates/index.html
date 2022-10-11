@@ -6,15 +6,11 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <<h1>Un cliente</h1>
-        <p> Nombre: <span th:text="${cliente.nombre}"></span></p>
-        <p> Apellidos: <span th:text="${cliente.apellidos}"></span></p>
-        <p> Correo: <span th:text="${cliente.correo}"></span></p>
-        <p> Telefono: <span th:text="${cliente.telefono}"></span></p>
-        <br />
-        <br />
-        <br />
-        <br />
+        <<h1>Listado de clientes</h1>
+        <br/> 
+        <a th:href="@{clientes !=null and !clientes.empty}"</>a>
+        <br/>
+   
         <div th:if="${clientes != null and !clientes.empty}">
         <table border="1">
             <thead>
@@ -23,6 +19,8 @@
                     <th>Apellidos</th>
                     <th>Correo</th>
                     <th>Telefono</th>
+                    <th>Modificar</th><!-- comment -->
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +30,8 @@
                     <td th:text="${item.apellidos}"></td>
                     <td th:text="${item.correo}"></td>
                     <td th:text="${item.telefono}"></td>
+                    <td><a th:ref="@{/modificarCliente/}+${ietm.idCliente}">Modificar</a></td>
+                    <td><a th:ref="@{/modificarCliente/}+${ietm.idCliente}">Eliminar</a></td>
 
                 </tr>
             </tbody>
