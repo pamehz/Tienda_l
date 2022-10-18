@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <<h1>Listado de clientes</h1>
+        <header th:replace="layout/plantilla :: header" />
         <br/> 
         <a th:href="@{clientes !=null and !clientes.empty}"</>a>
         <br/>
@@ -37,8 +37,10 @@
             </tbody>
         </table>
         </div>
+        
         <div th:if="${clientes == null or clientes.empty}">
             La lista de clientes esta vacia
             </div>
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>
