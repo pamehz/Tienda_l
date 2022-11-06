@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class ArticuloController1 {
+public class ArticuloController {
        @Autowired
     private ArticuloService articuloService;   
     @Autowired
