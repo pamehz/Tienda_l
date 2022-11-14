@@ -3,6 +3,7 @@ package com.tienda_l.service;
 
 import com.tienda_l.dao.ClienteDao;
 import com.tienda_l.dao.CreditoDao;
+import com.tienda_l.domain.Articulo;
 import com.tienda_l.domain.Cliente;
 import com.tienda_l.domain.Credito;
 import java.util.List;
@@ -44,6 +45,9 @@ public class ClienteServiceImpl implements ClienteService{
     public void delete(Cliente cliente) {
         clienteDao.delete(cliente);
     }
-
+        @Override
+    public List<Cliente> getPorApellidos(String apellidos ) {
+        return clienteDao.findByApellidos(apellidos);
+    }
 
 }

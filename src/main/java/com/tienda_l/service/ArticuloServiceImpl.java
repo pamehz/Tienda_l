@@ -34,5 +34,12 @@ public class ArticuloServiceImpl implements ArticuloService{
     public void delete(Articulo articulo) {
         articuloDao.delete(articulo);
     }
-    
+    @Override
+    public List<Articulo> getPorExistencias(int existencias ) {
+        return articuloDao.findByExistencias(existencias);
+    }
+    @Override    
+    public List<Articulo> getPorExistenciasCategorias(int existencias, Long idCategoria ) {
+        return articuloDao.findByExistenciasOrIdCategoria(existencias, idCategoria);
+    }    
 }
