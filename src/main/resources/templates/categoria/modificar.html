@@ -8,21 +8,21 @@
     <body>
         <header th:replace="layout/plantilla :: header" />
         <div class="contenido"><!-- comment -->
-            <h2> Datos de Categoria </h2><!-- comment -->
-            <a th:href="@{/categoria/listado}">Regresar</a>
+            <h2> [[#{categoria.datos}   ]] </h2><!-- comment -->
+            <a th:href="@{/categoria/listado}">[[#{accion.regresar}   ]]</a>
             <br/><!-- <br/> -->
             <br/><!-- comment -->
             <form th:action="@{/categoria/guardar}"            
                   method="post"            
                   th:object="${categoria}">   
                 <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
-                <label for="descripcion">Descripcion: </label>            
+                <label for="descripcion">[[#{categoria.descripcion}   ]]: </label>            
                 <input type="text" name="descripcion" th:field="*{descripcion}" />            
                 <br>       
-                <label for="activo">Activo: </label>            
-                <td><input type="checkbox" name="activo" th:checked="${item.activo}"disabled />  </td>          
+                <label for="activo">[[#{categoria.activo}   ]]o: </label>            
+                <td><input type="checkbox" name="activo" th:field="*{activo}"/>  </td>          
                 <br> 
-                <input type="submit" name="Guardar" value="Guardar" />        
+                <input type="submit" name="Guardar" th:value="#{accion.guardar}" />        
             </form> 
         </div>
         <footer th:replace="layout/plantilla :: footer" />

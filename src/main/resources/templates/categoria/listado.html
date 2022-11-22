@@ -8,31 +8,31 @@
     <body>
         <header th:replace="layout/plantilla :: header" />
         <div class="contenido"><!-- comment -->
-            <h2> Listado de Categorias </h2><!-- comment -->
-            <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
+            <h2> [[#{categoria.titulo}   ]]</h2><!-- comment -->
+            <a th:href="@{/categoria/nuevo}">[[#{categoria.nuevo}   ]]</a>
         <div th:if="${categorias != null and !categorias.empty}">         
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Descripcion</th>
-                        <th>Activo</th>
-                        <th>Modificar</th><!-- comment -->
-                        <th>Eliminar</th>
+                        <th>[[#{categoria.descripcion}   ]]</th>
+                        <th>[[#{categoria.activo}   ]]</th>
+                        <th>[[#{accion.actualizar}   ]]</th><!-- comment -->
+                        <th>[[#{accion.eliminar}   ]]</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="item: ${categorias}">
                         <td th:text="${item.descripcion}"></td>
                         <td><input type="checkbox" name="activo" th:checked="${item.activo}"disabled/></td>
-                        <td><a th:ref="@{/categoria/modificar}+${ietm.idCategoria}">Modificar</a></td>
-                    <td><a th:ref="@{/categoria/eliminar}+${ietm.idCategoria}">Eliminar</a></td>
-                    </tr>
+                        <td><a th:ref="@{/categoria/modificar}+${ietm.idCategoria}">[[#{accion.actualizar}   ]]</a></td>
+                    <td><a th:ref="@{/categoria/eliminar}+${ietm.idCategoria}">[[#{accion.titulo}   ]]</a></td>
+                    </treliminar
                 </tbody>
             </table>
 
         </div>
                     <div th:if="${categorias == null or categorias.empty}">
-            La lista de categorias esta vacia
+            <th th:text="#{categoria.no_mostrar}">No mostrar items</th>
              </div>
         <footer th:replace="layout/plantilla :: footer" />
     </body>

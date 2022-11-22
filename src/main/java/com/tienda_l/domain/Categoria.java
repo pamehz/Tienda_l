@@ -22,7 +22,8 @@ public class Categoria implements Serializable{
         private String descripcion;
         private boolean activo;
 
-    public Categoria() {
+   
+ public Categoria() {
     }
 
     public Categoria(String descripcion, boolean activo) {
